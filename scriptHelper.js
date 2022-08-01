@@ -1,35 +1,30 @@
 // Write your helper functions here!
 require('isomorphic-fetch');
 
-function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
+function addDestinationInfo(planetChoosen, name, diameter, star, distance, moons, imageUrl) {
     // Here is the HTML formatting for our mission target div.
+// let pickedPlanet = {"name":"","diameter":"","star":"","distance":"","image":"","moon":""}
 
-   
-    // fetch("https://handlers.education.launchcode.org/static/planets.json").then(function (response) {
+    
 
-
-    //     response.json().then(json => {
-    //         console.log(json);
-            
 
             missionTarget.innerHTML += `
             <h2>Mission Destination</h2>
             <ol>
-                <li>Name:${name} </li>
-                <li>Diameter:${diameter} </li>
-                <li>Star: ${star}</li>
-                <li>Distance from Earth:${distance} </li>
-                <li>Number of Moons:${moons} </li>
+                <li>Name:${planetChoosen.name} </li>
+                <li>Diameter:${planetChoosen.diameter} </li>
+                <li>Star: ${planetChoosen.star}</li>
+                <li>Distance from Earth:${planetChoosen.distance} </li>
+                <li>Number of Moons:${planetChoosen.moons} </li>
             </ol>
-            <img src="${imageUrl}">
+            <img src="${planetChoosen.image}">
             `
 
 
- 
+
         }
-//         )
-//   })
-// }
+   
+ 
 
 function validateInput(testInput) {
     if (testInput = null) {
@@ -66,8 +61,11 @@ async function myFetch() {
 }
 
 function pickPlanet(planets) {
-  
-  
+let pickedPlanet = {"name":"","diameter":"","star":"","distance":"","image":"","moon":""}
+let i = Math.floor(Math.random()*6)
+
+pickedPlanet = planets[i]
+ return pickedPlanet
 }
 
 
