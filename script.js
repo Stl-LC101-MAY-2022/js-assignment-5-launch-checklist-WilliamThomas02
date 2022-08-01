@@ -8,8 +8,8 @@
 
 
 
-window.addEventListener("load", function(event) {
-    event.preventDefault();
+window.addEventListener("load", function() {
+    
    let listedPlanets = myFetch()
    // Set listedPlanetsResponse equal to the value returned by calling myFetch()
    let listedPlanetsResponse = listedPlanets
@@ -25,8 +25,9 @@ window.addEventListener("load", function(event) {
         let planetChoosen = pickPlanet(listedPlanets)
         console.log(planetChoosen)
          addDestinationInfo(planetChoosen)
-         formSubmission()
+         formSubmission(document)
          
+         console.log('pushin p')
    })
    
 });
